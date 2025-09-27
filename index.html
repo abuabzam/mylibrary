@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management</title>
+  <style>
+    * { margin: 0;
+       padding: 0;
+        box-sizing: border-box;
+       }
+    body { font-family: Arial, sans-serif;
+       background: #f9fafb; 
+       color: #111827;
+        line-height: 1.6;
+       }
+
+   
+    header { 
+      background: #1e3a8a; 
+      color: #fff;
+       padding: 1rem 2rem;
+        display: flex;
+          justify-content: space-between; 
+          align-items: center;
+           flex-wrap: wrap;
+           }
+    header h1 { 
+      font-size: 1.5rem; 
+    }
+    nav a {
+       color: #fff; 
+       margin-left: 1rem;
+        text-decoration: none;
+         font-weight: 500;
+         }
+    nav a:hover {
+       text-decoration: underline;
+        margin-top: 0.5rem;
+         display: inline-block;
+         }
+
+
+    section { 
+      padding: 4rem 2rem; 
+    }
+    .container {
+       max-width: 1200px; 
+       margin: 0 auto;
+       }
+
+
+    #home { 
+      background: #f3f4f6;
+       text-align: center;
+       }
+    #home h2 { 
+      font-size: 2rem;
+       margin-bottom: 1rem;
+       }
+    #home input { 
+      padding: 0.7rem;
+       width: 50%; max-width: 400px; 
+       border: 1px solid #ccc; 
+       border-radius: 6px; 
+      }
+    @media (max-width: 600px) {
+      #home input { width: 80%;
+       }
+      header { 
+        justify-content: center; 
+      }
+      nav {
+         width: 100%; 
+         text-align: center; 
+         margin-top: 0.5rem; 
+        }
+      nav a {
+         margin-left: 0.5rem; 
+         margin-right: 0.5rem; 
+        }
+    }
+
+    
+    #catalog h3 {
+       font-size: 1.8rem; 
+       margin-bottom: 2rem; 
+       text-align: center; 
+      }
+    .grid {
+       display: grid; 
+       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+       gap: 2rem; 
+      }
+    .book-card { 
+      background: #fff; 
+      padding: 1rem; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+      text-align: center; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+    }
+    .book-card img {
+       max-width: 100%; 
+       border-radius: 6px; 
+       margin-bottom: 1rem; 
+       height: 280px; 
+       object-fit: cover; 
+      }
+    .book-card h4 { 
+      font-size: 1.2rem;
+       margin-bottom: 0.3rem;
+       }
+    .book-card p { 
+      font-size: 0.95rem; 
+      color: #555;
+       margin-bottom: 0.5rem;
+       }
+    .book-card button { 
+      background: #2563eb; 
+      color: #fff;
+       border: none;
+        padding: 0.5rem 1rem; 
+        border-radius: 5px;
+         cursor: pointer; 
+        }
+    .book-card button:hover { 
+      background: #1e40af; 
+    }
+
+    
+    #about h3 { 
+      text-align: center;
+       margin-bottom: 1.5rem; 
+      }
+    #about p {
+       max-width: 800px;
+        margin: 0 auto;
+         text-align: center;
+         }
+
+
+    #login {
+       background: #eff6ff; 
+       display: flex;
+        justify-content: center;
+       }
+    .login-box {
+       background: #fff; 
+       padding: 2rem;
+        border-radius: 8px;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+         width: 100%;
+          max-width: 400px;
+         }
+    .login-box h3 {
+       text-align: center; 
+       margin-bottom: 1.5rem;
+       }
+    .login-box label { 
+      font-size: 0.9rem;
+       display: block;
+        margin-bottom: 0.3rem;
+       }
+    .login-box input { 
+      width: 100%;
+       padding: 0.6rem;
+        margin-bottom: 1rem;
+         border: 1px solid #ccc;
+          border-radius: 5px;
+         }
+    .login-box button { 
+      width: 100%;
+       padding: 0.7rem; 
+       background: #2563eb;
+        border: none;
+         color: #fff;
+          border-radius: 5px;
+           cursor: pointer;
+           }
+    .login-box button:hover { 
+      background: #1e40af;
+     }
+    .login-box p { 
+      font-size: 0.85rem;
+       text-align: center; 
+       margin-top: 0.5rem;
+       }
+    .login-box a { color: #2563eb;
+       text-decoration: none;
+       }
+    .login-box a:hover { 
+      text-decoration: underline;
+     }
+    footer { 
+      background: #1e3a8a; 
+      color: #fff; 
+      text-align: center;
+       padding: 1.5rem;
+        margin-top: 2rem;
+       }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <h1>Library</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#about">About</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <h2>Find Your Next Favorite Book</h2>
+    <input type="text" placeholder="Search books...">
+  </section>
+
+
+  <section id="catalog" class="container">
+    <h3>Featured Books</h3>
+    <div class="grid">
+      <div class="book-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg" alt="1984 by George Orwell">
+        <h4>1984</h4>
+        <p>by George Orwell</p>
+        <button>Borrow</button>
+      </div>
+      <div class="book-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg" alt="Pride and Prejudice by Jane Austen">
+        <h4>Pride and Prejudice</h4>
+        <p>by Jane Austen</p>
+        <button>Borrow</button>
+      </div>
+      <div class="book-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL.jpg" alt="The Pragmatic Programmer">
+        <h4>The Pragmatic Programmer</h4>
+        <p>by Andrew Hunt & David Thomas</p>
+        <button>Borrow</button>
+      </div>
+      <div class="book-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL.jpg" alt="Clean Code by Robert C. Martin">
+        <h4>Clean Code</h4>
+        <p>by Robert C. Martin</p>
+        <button>Borrow</button>
+      </div>
+      <div class="book-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg" alt="Harry Potter and the Sorcerer's Stone">
+        <h4>Harry Potter</h4>
+        <p>by J.K. Rowling</p>
+        <button>Borrow</button>
+      </div>
+      <div class="book-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81bG3aO4F0L.jpg" alt="The Hobbit by J.R.R. Tolkien">
+        <h4>The Hobbit</h4>
+        <p>by J.R.R. Tolkien</p>
+        <button>Borrow</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="about" class="container">
+    <h3>About Us</h3>
+    <p>
+      Welcome to MyLibrary, your one-stop digital platform for accessing and managing books.
+      Explore our catalog, attend events, and make the most of your reading journey.
+    </p>
+  </section>
+
+
+  <section id="login">
+    <div class="login-box">
+      <h3>Login to Your Account</h3>
+      <form>
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password">
+        <button type="submit">Login</button>
+        <p>Don’t have an account? <a href="#">Register</a></p>
+      </form>
+    </div>
+  </section>
+
+ 
+  <footer>
+    <p>&copy; 2025 MyLibrary. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
